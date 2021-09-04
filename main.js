@@ -1,9 +1,3 @@
-img = "";
-noseX = 0;
-noseY = 0;
-marioX = 325;
-marioY =  325;
-
 function preload() {
 	world_start = loadSound("world_start.wav");
 	setSprites();
@@ -21,10 +15,6 @@ function setup() {
     poseNet.on('pose', gotPoses);
 }
 
-function draw() {
-	game();
-}
-
 function modelLoaded()
 {
 	console.log("Model Loaded!");
@@ -38,4 +28,8 @@ function gotPoses(results)
 		noseX = results[0].pose.nose.x;
 		noseY = results[0].pose.nose.y;
 	}
+}
+
+function draw() {
+	game();
 }
