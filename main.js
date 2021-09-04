@@ -5,7 +5,6 @@ marioX = 325;
 marioY =  325;
 
 function preload() {
-	img = loadImage("mario.jpg");
 	world_start = loadSound("world_start.wav");
 	setSprites();
 	MarioAnimation();
@@ -19,25 +18,11 @@ function setup() {
 	video.size(600, 300);
 	video.parent('game_console')
 	poseNet = ml5.posenet(video, modelLoaded);
-    poseNet.noseX('pose', gotPoses);
+    poseNet.on('pose', gotPoses);
 }
 
 function draw() {
-	background("#D3D3D3");
-	image(img, marioX, marioY, 40, 70);
-	if(noseX < 300)
-	{
-		marioX = marioX - 1;
-	}
-	if(noseX > 300)
-	{
-		marioX = marioX + 1;
-	}
-	if(noseY > 150)
-	{
-		marioY = marioY - 1;
-	}
-	game()
+	game();
 }
 
 function modelLoaded()
@@ -54,7 +39,3 @@ function gotPoses(results)
 		noseY = results[0].pose.nose.y;
 	}
 }
-
-
-
-
