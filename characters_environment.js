@@ -56,7 +56,7 @@ noseX = "";
 noseY = "";
 GameStatus = "";
 
-function StartGame()
+function startGame()
 {
   GameStatus = "start";
   document.getElementById("status").innerHTML = "Game Is Loading";
